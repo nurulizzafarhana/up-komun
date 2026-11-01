@@ -1,26 +1,23 @@
-# Catatan Pemeriksaan Data
+# Catatan Pemeriksaan Data (versi bersih)
 
-Dibuat: 1/11/2026, 12.22.24
+Dibuat: 1/11/2026
 
-## Ringkasan
+## Yang sudah diperbaiki otomatis
+- 67 isian organik kehilangan titik desimal diperbaiki (mis. "05" menjadi 0,5; RW 05 dan RW 06 tanggal 30 Juli "23" menjadi 2,3). Perlu dikonfirmasi ke PPSU.
+- 109 entri harian ganda (tanggal, RW, RT, sumber, dan berat sama, selisih input kurang dari 30 menit) dibuang.
+- 11 tanggal harian salah ketik diganti tanggal input formulir.
+- Bank sampah: 2 entri uji coba ("TES"), 2 entri ganda, dan 1 salinan ganda (RW 01, 15 September) dibuang. Isian berupa kata atau total (RW 03) dibetulkan manual.
 
-- Baris harian terbaca: 8076
-- Rentang harian: 2026-06-23 s.d. 2026-10-31
-- Baris rekap mingguan: 1807
-- Entri bank sampah: 100
-- Jumlah RW: 10
+## Yang tidak dihitung, perlu dicek ke PPSU
+- 16 entri organik 100 kg atau lebih untuk satu RT dalam satu kali jemput (mis. 850, 956, 689, 580, 520 kg). Kemungkinan gram atau salah ketik. Daftar ada di log.json.
 
 ## Yang perlu dicek
-
-- [ ] 3 tanggal harian berada jauh di luar rentang pengisian dan tidak dihitung (kemungkinan salah ketik): 2026-02-15, 2026-05-24, 2026-11-15.
-- [ ] 7 baris harian bertahun salah ketik sehingga tidak dihitung: 10/08/2926 (RW. 001); 27/06/2027 (RW. 006); 27/08/2027 (RW. 006); 29/08/2029 (RW. 006); 31/08/2027 (RW. 009); 31/08/2002 (RW. 010); 06/09/2926 (RW. 009).
-- [ ] 21 baris harian punya kolom organik kosong/tidak angka; dihitung 0.
-- [ ] Rekap 2026-08-w3: jumlah rumah memilah sama persis dengan periode lain - kemungkinan disalin, perlu dicek.
-- [ ] 10 baris rekap punya rumah memilah > jumlah rumah (RW 10 2026-07-w5, RW 01 2026-08-w1, RW 01 2026-08-w2, RW 01 2026-08-w3, RW 01 2026-08-w4).
-- [ ] Rekap: 13 blok minggu terbaca, 1807 baris per RT. Kolom komposting/BSF/BSU tidak dipakai karena tidak konsisten dengan data harian.
-- [ ] Bank sampah: 103 entri, 3 dilewati karena berat/tanggal tidak terbaca (mis. isian "TES").
+- Rekap 2026-08-w3 dan w4: komposting, BSF, BSU, dan residu kembar persis (kemungkinan disalin). Kolom itu tidak dipakai di web.
+- Rekap Sep–Okt: angka organik dan BSU hampir statis, tidak mengikuti timbangan harian. Tidak dipakai di web.
+- 10 baris rekap per RT punya rumah memilah lebih besar dari jumlah rumah (RW 01 RT 4, 109%). Total rekap tetap memakai angka asli sheet.
+- Bank sampah RW 05: isian bulan Mei (tutup botol 72,5 kg) tampak janggal.
+- RW 09 tidak punya bank sampah; RW 03 melapor 3 kali; beberapa RW melapor tidak rutin.
 
 ## Yang tidak ditampilkan di web
-
-- Kolom komposting, BSF magot, BSU, dan residu pada rekap mingguan (angkanya tidak konsisten dengan timbangan harian).
-- Isian bank sampah yang beratnya tidak terbaca (mis. "TES").
+- Data per RT (rekap mingguan digabung ke tingkat RW).
+- Kolom komposting, BSF, BSU, residu rekap mingguan.
